@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAIL FUSION</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Added Roboto Slab font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+</head>
+<body>
+   <!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <h1><a href="index.html">TRAIL FUSION</a></h1>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="LeaderBoard.html">Leaderboard</a></li>
+         
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <!-- Video Background -->
+    <video id="hero-video" class="hero-video" autoplay muted>
+        <!-- Placeholder source, we'll dynamically change this -->
+        <source id="video-source" src="trailfusion/video/5319447-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+        <h1>Welcome to Your Adventure</h1>
+        <p>Join us for unforgettable experiences in marathons, hikes, and runs!</p>
+        <a href="#events" class="btn">Discover Events</a>
+
+    </div>
+</section>
+
+    
+    <!-- About Us Section --> 
+    <section class="about-us" id="about-us">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>About Us</h2>
+        <p>TRAIL FUSION is your go-to platform for marathons, runs, and hikes. Whether you're a seasoned athlete or just starting, we provide events that challenge, inspire, and bring people together.</p>
+        <br> <a href="#contact" class="btn">Contact Us</a>
+        <br>
+        <br>
+        <br>
+        <br>
+    </section>
+
+
+
+
+<!-- Upcoming Events Section -->
+<section class="upcoming-events" id="events">
+    <h2>Upcoming Events</h2>
+    <p class="section-description">Check out our exciting upcoming events in Gauteng, South Africa. Whether you're looking for a challenge or a fun adventure, we've got something for everyone. Join us and make memories!</p>
+    <div class="event-list">
+
+        <div class="event-item">
+            <div class="event-icon"><i class="fas fa-running"></i></div>
+            <h4>Gauteng Marathon 2025</h4>
+            <p><strong>Date:</strong> 15th August 2025</p>
+            <p><strong>Location:</strong> Johannesburg, Gauteng</p>
+            <p>Join us for the ultimate marathon challenge in the heart of Gauteng! Run through Johannesburg’s iconic landmarks and experience the thrill of crossing the finish line.</p>
+            <a href="#" class="btn" data-event="marathon">Learn More</a>
+        </div>
+        <div class="event-item">
+            <div class="event-icon"><i class="fas fa-mountain"></i></div>
+            <h4>Magaliesberg Mountain Hike</h4>
+            <p><strong>Date:</strong> 10th September 2025</p>
+            <p><strong>Location:</strong> Magaliesberg Mountains, Gauteng</p>
+            <p>Discover breathtaking views and challenge yourself on this mountain hike in the scenic Magaliesberg range. Perfect for nature lovers and adventure seekers!</p>
+            <a href="#" class="btn" data-event="hike">Learn More</a>
+        </div>
+        <div class="event-item">
+            <div class="event-icon"><i class="fas fa-shoe-prints"></i></div>
+            <h4>5K Fun Run</h4>
+            <p><strong>Date:</strong> 20th June 2025</p>
+            <p><strong>Location:</strong> Pretoria, Gauteng</p>
+            <p>Perfect for beginners and families, this 5K run in Pretoria is all about fun, fitness, and community. Come run for a cause!</p>
+            <a href="#" class="btn" data-event="funrun">Learn More</a>
+        </div>
+        <!-- Additional Event Items -->
+        <div class="event-item">
+            <div class="event-icon"><i class="fas fa-bicycle"></i></div>
+            <h4>Gauteng Bike Tour 2025</h4>
+            <p><strong>Date:</strong> 5th July 2025</p>
+            <p><strong>Location:</strong> Pretoria and Centurion, Gauteng</p>
+            <p>Join us for an unforgettable bike tour through the scenic routes of Pretoria and Centurion. Enjoy a scenic ride and explore the beauty of Gauteng.</p>
+            <a href="#" class="btn" data-event="biketour">Learn More</a>
+        </div>
+        <div class="event-item">
+            <div class="event-icon"><i class="fas fa-skiing"></i></div>
+            <h4>Winter Ski Trip</h4>
+            <p><strong>Date:</strong> 25th December 2025</p>
+            <p><strong>Location:</strong> Gauteng Ski Resort (Possible future expansion)</p>
+            <p>Although Gauteng is not traditionally a ski destination, we’re bringing a winter wonderland experience to the region for a fun-filled trip! Join us for a magical ski trip experience.</p>
+            <a href="#" class="btn" data-event="skitrip">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Event Details -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalEventTitle">Event Title</h3>
+        <p id="modalEventDate">Date: </p>
+        <p id="modalEventLocation">Location: </p>
+        <p id="modalEventTime">Time: </p> <!-- New time field -->
+        <p id="modalEventStartLocation">Start Location: </p> <!-- New start location field -->
+        <p id="modalEventDetails">Event Details...</p>
+           <!-- Google Maps Embed -->
+           <div id="modalMapContainer">
+            <!-- Google Map iframe will be dynamically added here -->
+        </div>
+        <a id="instagramLink" href="https://www.instagram.com" class="btn">View on Instagram</a>    <!-- fix this link, still not working -->
+        <br>
+        <br>
+        
+    </div>
+</div>
+
+
+<!-- Newsletter Signup Section -->
+<section class="newsletter" id="newsletter">
+    <h1>Stay Updated with Our Latest Adventures!</h1>
+    <p>Sign up for our newsletter and never miss an exciting event!</p>
+    <form action="#" method="POST">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+        <br>
+          <!-- This will display after subscribing 
+    <p id="subscribed-message" style="display: none; color: #FF6F61; font-size: 24px; font-weight: bold;">Subscribed!</p>
+-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </form>
+</section>
+
+
+
+ <!-- Countdown Timer Section -->
+ <section class="timer" id="timer">
+    <div class="timer-content">
+        <h2>Next Run Starts In:</h2>
+        <div class="countdown">
+            <div class="time-box" id="days"></div>
+            <div class="time-box" id="hours"></div>
+            <div class="time-box" id="minutes"></div>
+            <div class="time-box" id="seconds"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 EventHub. All Rights Reserved.</p>
+        <div class="social-media-links">
+          
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        
+ 
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        
+             
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        
+
+        </div>
+    </footer>
+    
+
+
+
+
+
+
+
+      <!-- JavaScript -->
+      <script>
+        // Smooth scrolling is handled by the CSS `scroll-behavior: smooth;`
+        
+        // Countdown Timer
+        const countDownDate = new Date("April 30, 2025 10:00:00").getTime(); // Set the date and time for the next run
+
+        // Update the countdown every second
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days + "d";
+            document.getElementById("hours").innerHTML = hours + "h";
+            document.getElementById("minutes").innerHTML = minutes + "m";
+            document.getElementById("seconds").innerHTML = seconds + "s";
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("timer").innerHTML = "<h2>The event has started!</h2>";
+            }
+        }, 1000);
+
+
+
+
+    // List of video sources in the order they should play
+    const videoSources = [
+        "video/5319447-uhd_3840_2160_25fps.mp4",
+        "video/5237015-hd_1920_1080_25fps.mp4"
+    ];
+
+    let currentVideoIndex = 0;  // Start with the first video
+
+    const videoElement = document.getElementById("hero-video");
+    const videoSource = document.getElementById("video-source");
+
+    // Function to load the next video in the list
+    function loadNextVideo() {
+        // Set the new video source
+        videoSource.src = videoSources[currentVideoIndex];
+        
+        // Reload and play the new video
+        videoElement.load();
+        videoElement.play();
+        
+        // Move to the next video index, looping back to 0 if we reach the end
+        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    }
+
+    // Listen for the 'ended' event to know when the video finishes and load the next one
+    videoElement.addEventListener('ended', loadNextVideo);
+
+    // Start playing the first video
+    loadNextVideo();
+
+
+// JavaScript to detect scroll event and add/remove 'shrink' class
+window.onscroll = function() {
+    shrinkNavbar();
+};
+
+function shrinkNavbar() {
+    let navbar = document.querySelector(".navbar");
+    let navLinks = document.querySelectorAll(".navbar nav ul li a");
+
+    if (window.scrollY > 50) {  // When the user scrolls down more than 50px
+        navbar.classList.add("shrink");
+    } else {
+        navbar.classList.remove("shrink");
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById("eventModal");
+    const closeBtn = document.querySelector(".close");
+
+    const eventsData = {
+        marathon: {
+            title: "Gauteng Marathon 2025",
+            date: "15th August 2025",
+            location: "Johannesburg, Gauteng",
+            time: "7:00 AM",
+            startLocation: "Central Park, Johannesburg",
+            details: "Join us for the ultimate marathon challenge in Johannesburg! Run through iconic landmarks, including Central Park to Times Square.",
+            mapLocation: "Central Park, Johannesburg",  // Google Maps location
+            instagramLink: "https://www.instagram.com"  // Instagram link
+        },
+        hike: {
+            title: "Magaliesberg Mountain Hike",
+            date: "10th September 2025",
+            location: "Magaliesberg, Gauteng",
+            time: "9:00 AM",
+            startLocation: "Base Camp, Magaliesberg",
+            details: "Discover breathtaking views and challenge yourself on this scenic hike through Magaliesberg. Perfect for nature lovers!",
+            mapLocation: "Magaliesberg Mountains, Gauteng",
+            instagramLink: "https://www.instagram.com"  // Instagram link
+        },
+        funrun: {
+            title: "Gauteng 5K Fun Run",
+            date: "20th June 2025",
+            location: "Pretoria, Gauteng",
+            time: "8:00 AM",
+            startLocation: "Pretoria Central Park",
+            details: "Join us for this fun and community-driven 5K event. Run through Pretoria’s streets and support a great cause.",
+            mapLocation: "Pretoria Central Park",
+            instagramLink: "https://www.instagram.com"  // Instagram link
+        },
+        biketour: {
+            title: "Gauteng Bike Tour 2025",
+            date: "5th July 2025",
+            location: "Pretoria and Centurion, Gauteng",
+            time: "10:00 AM",
+            startLocation: "Dam Square, Centurion",
+            details: "Join us for an unforgettable bike tour through the scenic routes of Pretoria and Centurion, exploring the beauty of Gauteng.",
+            mapLocation: "Pretoria Central Park",
+            instagramLink: "https://www.instagram.com"  // Instagram link
+        },
+        skitrip: {
+            title: "Gauteng Winter Ski Trip",
+            date: "25th December 2025",
+            location: "Gauteng Ski Resort",
+            time: "8:30 AM",
+            startLocation: "Gauteng Ski Resort",
+            details: "Experience a unique winter wonderland in Gauteng with our ski trip. Whether you're a pro or a beginner, this is for everyone!",
+            mapLocation: "Pretoria Central Park",
+            instagramLink: "https://www.instagram.com"  // Instagram link
+        }
+    };
+
+    // Attach event listeners to each "Learn More" button
+    document.body.addEventListener('click', function(e) {
+     if (e.target && e.target.matches('.btn')) {
+         e.preventDefault();
+         const eventType = e.target.getAttribute('data-event');
+         const event = eventsData[eventType];
+         populateModal(event);
+     }
+});
+
+function populateModal(event) {
+     document.getElementById('modalEventTitle').textContent = event.title;
+     document.getElementById('modalEventDate').textContent = event.date;
+     document.getElementById('modalEventLocation').textContent = event.location;
+     document.getElementById('modalEventTime').textContent = event.time;
+     document.getElementById('modalEventStartLocation').textContent = event.startLocation;
+     document.getElementById('modalEventDetails').textContent = event.details;
+
+     const mapURL = `https://www.google.com/maps/embed/v1/place?q=Mall+of+Africa,+Johannesburg,+South+Africa&key=YOUR_GOOGLE_MAPS_API_KEY`; // get the google maps api's
+
+     document.getElementById('modalMapContainer').innerHTML = `<iframe width="100%" height="300" frameborder="0" style="border:0" src="${mapURL}" allowfullscreen></iframe>`;
+
+     const instagramButton = document.getElementById('instagramLink');
+     instagramButton.setAttribute('href', event.instagramLink);
+     instagramButton.setAttribute('target', '_blank');
+
+     modal.style.display = "block";
+
+    }
+
+    // Close modal when the close button is clicked
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = "none";
+        document.getElementById('modalMapContainer').innerHTML = "";  // Clear map when modal closes
+    });
+
+    // Close modal if the user clicks outside of the modal
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.getElementById('modalMapContainer').innerHTML = "";  // Clear map when modal closes
+        }
+    });
+});
+
+
+
+
+
+
+    // Smooth scroll with an offset (if you have a fixed navbar)
+    document.querySelector('.btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get the target section
+        const target = document.querySelector('#events');
+        
+        // Scroll to the section with an offset (e.g., for a fixed navbar)
+        window.scrollTo({
+            top: target.offsetTop - 80,  // Adjust the offset value (80px for the navbar)
+            behavior: 'smooth'
+        });
+    });
+
+
+
+
+ </script>
+
+
+</body>
+</html>
