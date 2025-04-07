@@ -1,0 +1,189 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #000;  /* Set navbar background to black */
+    color: white;  /* Navbar text will be white */
+    padding: 30px 50px;  /* Increased padding for a bigger navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Shrinked Navbar on Scroll */
+.navbar.shrink {
+    padding: 15px 50px; /* Smaller padding when scrolling */
+    background-color: black; /* Keep the navbar black even when scrolled */
+}
+
+/* Logo Styles */
+.navbar .logo h1 a {
+    color: #20b2aa;
+    font-size: 40px;  /* Larger size for the logo */
+    font-family: 'Lobster', cursive; /* Creative, stylish font for the logo */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+/* Navbar Link Styles */
+.navbar nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 40px;
+}
+
+.navbar nav ul li a {
+    color: white; /* Default color when navbar is transparent */
+    font-size: 24px; /* Larger font size for navbar links */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Navbar Links when Scrolled (black color when navbar turns white) */
+.navbar.shrink nav ul li a {
+    color: black;  /* Black color for links when scrolled */
+}
+
+/* Hover Effects for Navbar Links */
+.navbar nav ul li a:hover {
+    color: #20b2aa;  /* Light teal color on hover */
+}
+
+.navbar nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #20b2aa;  /* Matching underline color */
+    transition: width 0.3s ease;
+}
+
+/* Navbar Links (for mobile responsiveness) */
+@media (max-width: 768px) {
+    .navbar nav ul {
+        display: block;
+        text-align: center;
+    }
+    .navbar nav ul li {
+        margin: 20px 0;
+    }
+}
+
+/* Leaderboard Section */
+.leaderboard {
+    background-color: #f4f4f4;  /* Light background for the section */
+    color: #333;  /* Dark text for better readability */
+    padding: 80px 20px;  /* Ample padding for spacing */
+    text-align: center;
+}
+
+.leaderboard h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FF6F61;  /* Highlight color for the title */
+    margin-bottom: 20px;
+}
+
+.leaderboard p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Table Container */
+.table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;  /* Allow scrolling on smaller screens */
+}
+
+/* Table Styling */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.leaderboard-table th {
+    background-color: #20b2aa;  /* Teal background for headers */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.leaderboard-table td {
+    background-color: #fff;  /* White background for table rows */
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    border-bottom: 1px solid #eee;  /* Light grey border between rows */
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .leaderboard-table th, .leaderboard-table td {
+        padding: 8px 12px;  /* Smaller padding on mobile */
+        font-size: 14px;  /* Smaller font size */
+    }
+
+    .leaderboard-table th {
+        font-size: 16px;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: white;  /* Black background for the footer */
+    color: black;
+    text-align: center;
+    padding: 10px 20px;  /* Smaller padding to make footer smaller */
+    font-size: 14px;  /* Smaller text for the footer */
+}
+
+footer p {
+    margin: 0;
+}

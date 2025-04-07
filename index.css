@@ -1,0 +1,646 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: transparent;
+    color: white;
+    padding: 30px 50px; /* Increased padding for a bigger navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Shrinked Navbar on Scroll */
+.navbar.shrink {
+    padding: 15px 50px; /* Smaller padding when scrolling */
+    background-color: white; /* White background on scroll */
+     transition: padding 0.3s ease, background-color 0.3s ease;  /* Smooth transition */
+}
+
+/* Logo Styles */
+.navbar .logo h1 a {
+    color: #20b2aa;
+    font-size: 40px;  /* Larger size for the logo */
+    font-family: 'Lobster', cursive; /* Creative, stylish font for the logo */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+/* Navbar Link Styles */
+.navbar nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 40px;
+}
+
+.navbar nav ul li a {
+    color: white; /* Default color when navbar is transparent */
+    font-size: 24px; /* Larger font size for navbar links */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Navbar Links when Scrolled (black color when navbar turns white) */
+.navbar.shrink nav ul li a {
+    color: black;  /* Black color for links when scrolled */
+}
+
+/* Hover Effects for Navbar Links */
+.navbar nav ul li a:hover {
+    color: #20b2aa;  /* Light teal color on hover */
+}
+
+.navbar nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #20b2aa;  /* Matching underline color */
+    transition: width 0.3s ease;
+}
+
+/* Navbar Links (for mobile responsiveness) */
+@media (max-width: 768px) {
+    .navbar nav ul {
+        display: block;
+        text-align: center;
+    }
+    .navbar nav ul li {
+        margin: 20px 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Video Background */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the entire section */
+    z-index: -1; /* Places the video behind the content */
+}
+
+/* Dark Overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darken the video */
+    z-index: 0; /* Overlay on top of the video but behind the content */
+}
+
+/* Hero Content Styles */
+.hero-content {
+    max-width: 900px;
+    padding: 0 20px;
+    opacity: 0; /* Make the content hidden initially */
+    transform: translateY(30px); /* Start below the screen */
+    animation: slideIn 1s ease-out forwards; /* Animate content to slide in */
+    animation-delay: 0.5s; /* Delay for smooth effect */
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Text shadow for better visibility */
+    opacity: 0; /* Make the text hidden initially */
+    transform: scale(0.8); /* Start from smaller size */
+    animation: textScaleUp 1s ease-out forwards; /* Animate text to grow */
+    animation-delay: 0.5s; /* Delay animation for smooth effect */
+}
+
+.hero p {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent for softness */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Make the text hidden initially */
+    transform: scale(0.8); /* Start from smaller size */
+    animation: textScaleUp 1s ease-out forwards;
+    animation-delay: 1s; /* Delay for smooth effect */
+}
+
+.hero .btn {
+    padding: 12px 30px;
+    background-color: #20b2aa;  /* Teal color for the button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid #20b2aa;
+    cursor: pointer;
+    opacity: 0; /* Make the button hidden initially */
+    transform: scale(0.8); /* Start from smaller size */
+    animation: textScaleUp 1s ease-out forwards; /* Animate the button to grow */
+    animation-delay: 1.5s; /* Delay for smooth effect */
+    transition: transform 0.3s ease, background-color 0.3s ease;  /* Combined transition */
+}
+
+.hero .btn:hover {
+    background-color: white;
+    color: #20b2aa;
+    border: 2px solid #20b2aa;
+    transform: scale(1.1);  /* Slight scale-up effect */
+}
+
+
+
+
+/* Text Scaling Animation */
+@keyframes textScaleUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* About Us Section */
+.about-us {
+    background-color: Black; /* Dark background for contrast */
+    color: white;  /* White text for better readability */
+    padding: 90px 25px; /* Ample padding for more breathing space */
+    text-align: center;
+    position: relative;
+}
+
+.about-content {
+    max-width: 900px; /* Limit content width for better presentation */
+    margin: 0 auto;  /* Center content horizontally */
+}
+
+/* Title */
+.about-us h2 {
+    font-size: 40px; /* Larger font size for the heading */
+    font-weight: 700; /* Bold heading */
+    margin-bottom: 20px; /* Space below the heading */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paragraph */
+.about-us p {
+    font-size: 22px; /* Increase the font size for better readability */
+    line-height: 1.6; /* Add spacing between lines */
+    margin-bottom: 40px; /* Space between paragraph and button */
+    max-width: 800px; /* Limit width for better text alignment */
+    margin: 0 auto; /* Center the paragraph */
+    font-weight: 400; /* Normal weight for body text */
+    color: #f0f0f0; /* Slightly off-white color for the paragraph */
+}
+
+/* Button Styling */
+.about-us .btn {
+    padding: 15px 35px;  /* Larger button for better engagement */
+    background-color: #20b2aa;  /* Teal color for the button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border: 2px solid #20b2aa; /* Add border matching the button color */
+}
+
+/* Button Hover Effect */
+.about-us .btn:hover {
+    background-color: white;  /* White background on hover */
+    color: #20b2aa;  /* Change text color to teal on hover */
+    border: 2px solid #20b2aa; /* Border also changes color */
+    transform: scale(1.1); /* Slight enlargement to attract attention */
+}
+
+/*Add subtle shadow for depth */
+.about-us {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    border-radius: 15px; /* Rounded corners for smoother design */
+}
+
+
+
+/* Upcoming Events Section */
+.upcoming-events {
+    background-color: white; /* Light background for contrast */
+    color: #333;  /* Dark text for readability */
+    padding: 100px 20px;  /* Increased padding for a larger section */
+    text-align: center;
+}
+
+.upcoming-events h2 {
+    font-size: 50px;  /* Larger heading */
+    font-weight: 700;
+    margin-bottom: 20px;  /* Space between heading and description */
+    color: #FF6F61;  /* Highlight color for the title */
+    text-transform: uppercase;
+}
+
+.upcoming-events .section-description {
+    font-size: 22px;  /* Increase font size */
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 40px;  /* Centered and spaced below the heading */
+    color: #555;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));  /* Responsive grid */
+    gap: 40px;  /* Space between event items */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.event-item {
+    background-color: #fff;  /* White background for each event card */
+    padding: 40px;  /* Adequate padding */
+    border-radius: 15px;  /* Rounded corners for a modern look */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    transition: transform 0.3s ease;  /* Smooth hover animation */
+    text-align: left;
+}
+
+.event-item:hover {
+    transform: translateY(-10px);  /* Hover effect to lift the card */
+}
+
+.event-icon {
+    font-size: 50px;  /* Large icons for each event */
+    color: #20b2aa;  /* Icon color to match the theme */
+    margin-bottom: 15px;  /* Space between icon and heading */
+}
+
+.event-item h4 {
+    font-size: 28px;  /* Larger font for the event name */
+    font-weight: 600;
+    margin-bottom: 10px;  /* Space below the event name */
+}
+
+.event-item p {
+    font-size: 18px;  /* Readable text size */
+    margin-bottom: 15px;
+}
+
+.event-item .btn {
+    padding: 12px 30px;
+    background-color: #20b2aa;  /* Teal color for the button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid #20b2aa;
+}
+
+.event-item .btn:hover {
+    background-color: white;
+    color: #20b2aa;
+    border: 2px solid #20b2aa;
+    transform: scale(1.1);  /* Slight scale-up effect */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .upcoming-events h2 {
+        font-size: 40px;  /* Smaller heading on mobile */
+    }
+
+    .event-item {
+        padding: 30px;  /* Less padding for smaller screens */
+    }
+
+    .event-item .btn {
+        font-size: 16px;  /* Smaller button on mobile */
+    }
+}
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay background */
+    padding-top: 35px; /* Center modal vertically */
+    box-sizing: border-box;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Modal Header (Close Button) */
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #FF6F61; /* Coral color */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Title */
+#modalEventTitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FF6F61; /* Coral color */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Modal Event Details */
+#modalEventDate,
+#modalEventLocation,
+#modalEventDetails {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Modal Event Time and Start Location Styling */
+#modalEventTime,
+#modalEventStartLocation {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px; /* Adjust spacing */
+}
+
+
+/* Button Inside Modal */
+.modal .btn {
+    background-color: #20b2aa; /* Teal button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid #20b2aa;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.modal .btn:hover {
+    background-color: white;
+    color: #20b2aa;
+    border: 2px solid #20b2aa;
+    transform: scale(1.1); /* Slight scale-up effect */
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #modalEventTitle {
+        font-size: 28px;
+    }
+
+    #modalEventDate,
+    #modalEventLocation,
+    #modalEventDetails {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+/* Newsletter Section */
+.newsletter {
+    background-color: white; /* Light gray background */
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.newsletter h1 {
+    font-family: 'Roboto Slab', serif; /* Use Roboto Slab font */
+    font-size: 48px;
+    color: #FF6F61; /* Coral color */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Make the heading bold and uppercase */
+    letter-spacing: 2px; /* Space out the letters */
+}
+
+.newsletter p {
+    font-size: 20px;
+    color: #333; /* Dark grey for the description */
+    margin-bottom: 30px;
+}
+
+.newsletter form {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 15px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 15px 30px;
+    background-color: Black; /* Matching coral color */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: gray; /* Slightly darker coral color on hover */
+}
+
+
+
+
+/* Countdown Timer Section */
+.timer {
+    background-color: black;
+    color: white;
+    padding: 66px 26px;
+    text-align: center;
+}
+
+.timer .timer-content h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.time-box {
+    font-size: 32px;
+    font-weight: 700;
+    padding: 20px 30px;
+    background-color: #20b2aa;
+    border-radius: 10px;
+    width: 120px;
+}
+
+.timer p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.timer {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    border-radius: 15px; /* Rounded corners for smoother design */
+}
+
+
+
+
+
+/* Footer */
+
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: #fff;
+}
+
+.social-media-links {
+    margin-top: 10px;
+}
+
+.social-media-links a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-media-links a:hover {
+    color: #20b2aa;  /* Highlight color on hover */
+}
