@@ -73,4 +73,3 @@ TRAIL FUSION aims to be the go-to online hub for trail runners, hikers, cyclists
 - Google Maps iframe requires a valid Google Maps Embed API key to display live maps correctly. 
 - Social media links currently redirect to Instagram homepage — update with actual profiles.  
 - This is an early-stage project and subject to frequent updates.
-<img width="701" height="1922" alt="image" src="https://github.com/user-attachments/assets/d89517b0-7eff-4ed2-bb70-78753d313284" />
